@@ -1,0 +1,5 @@
+const e=document.getElementById("addFilm_input"),t=document.getElementById("addFilm_button"),l=document.getElementById("movie-list");document.getElementById("movie-list_li"),elem=null;const i=e=>{let t=document.createElement("li");t.innerHTML=`
+        <img id="movie-list_li_img" class="movie-list_li_img" src="Rectangle 814.png" alt="">
+        ${e}
+        <img id="movie-list_li_icon" class="movie-list_li_icon" src="crest.png" alt="">
+        `,t.className="movie-list_li",t.querySelector(".movie-list_li_icon").addEventListener("click",()=>m(t,e)),t.querySelector(".movie-list_li_img").addEventListener("click",()=>{t.classList.toggle("movie-list_li__ver2")}),l.appendChild(t)},m=(e,t)=>{l.removeChild(e);let i=(JSON.parse(localStorage.getItem("elemString"))||[]).filter(e=>e!==t);localStorage.setItem("elemString",JSON.stringify(i))};(JSON.parse(localStorage.getItem("elemString"))||[]).forEach(e=>{i(e)}),t.addEventListener("click",()=>{let t=e.value;if(""===t.trim())return void alert("Введите название фильма");i(t);let l=JSON.parse(localStorage.getItem("elemString"))||[];l.push(t),localStorage.setItem("elemString",JSON.stringify(l)),e.value=""});
